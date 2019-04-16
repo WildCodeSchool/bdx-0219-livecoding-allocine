@@ -1,4 +1,4 @@
-# Simple MVC
+# Simple MVC - Livecoding AlloCiné
 
 ## Description
 
@@ -23,5 +23,8 @@ define('APP_DB_PWD', 'your_db_password');
 6. Go to `localhost:8000` with your favorite browser.
 7. From this starter kit, create your own web application.
 
+## Vidéo
+
+The video is available on youtube at [Livecoding - Cinéma / Simple-MVC - 10/04/2019](https://youtu.be/K4ssh1FWPlU)
 
 03/07/2018 @wildcodeschool.fr

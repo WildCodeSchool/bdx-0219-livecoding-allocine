@@ -2,4 +2,37 @@
 
 {% block content %}
     <h1>Hello Wilder !</h1>
+    <section class="main">
+        <div>
+            <h2>Famous people</h2>
+            <ul class="persons">
+                {% for person in persons %}
+                    <li>{{ person.personFirstName ~ ' ' ~ person.personLastName }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            <h2>Best movies</h2>
+            <ul class="movies">
+                {% for movie in movies %}
+                    <li>
+                        <a href="/movie/details/{{ movie.movieID }}/{{ movie.movieTitle }}">
+                            <img src="{{ movie.posterLink }}">
+                            {{ movie.movieTitle ~ ' (' ~ movie.movieRating ~ '/5)' }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            <h2>Genres</h2>
+            <ul class="genre">
+                {% for genre in genres %}
+                    <li>{{ genre.genreType }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
 {% endblock %}

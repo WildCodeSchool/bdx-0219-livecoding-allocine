@@ -8,6 +8,10 @@
 
 namespace App\Controller;
 
+use App\Model\ActorManager;
+use App\Model\GenreManager;
+use App\Model\MovieManager;
+
 class HomeController extends AbstractController
 {
 
@@ -21,6 +25,22 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $movieManager = new MovieManager();
+        $movies = $movieManager->getAllMoviesWithPoster();
+
+        $personManager= new ActorManager();
+        $persons = $personManager->selectAll();
+
+        $genreManager = new GenreManager();
+        $genres = $genreManager->selectAll();
+
+
+        return $this->twig->render('Home/index.html.twig',
+            [
+                'movies' => $movies,
+                'persons' => $persons,
+                'genres' => $genres
+            ]
+        );
     }
 }
