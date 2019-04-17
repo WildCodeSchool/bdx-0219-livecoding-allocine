@@ -35,7 +35,8 @@ class HomeController extends AbstractController
         $genres = $genreManager->selectAll();
 
 
-        return $this->twig->render('Home/index.html.twig',
+        return $this->twig->render(
+            'Home/index.html.twig',
             [
                 'movies' => $movies,
                 'persons' => $persons,

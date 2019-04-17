@@ -8,7 +8,6 @@
 
 namespace App\Controller;
 
-
 use App\Model\MovieManager;
 
 class MovieController extends AbstractController
@@ -19,9 +18,9 @@ class MovieController extends AbstractController
         $movieManager = new MovieManager();
         $movie = $movieManager->getOneWithPoster($id);
 
-        return $this->twig->render("Movie/details.html.twig",
+        return $this->twig->render(
+            "Movie/details.html.twig",
             ['movie' => $movie]
         );
-
     }
 }
