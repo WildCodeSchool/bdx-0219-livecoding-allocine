@@ -16,12 +16,7 @@
             <h2>Best movies</h2>
             <ul class="movies">
                 {% for movie in movies %}
-                    <li>
-                        <a href="/movie/details/{{ movie.movieID }}/{{ movie.movieTitle }}">
-                            <img src="{{ movie.posterLink }}">
-                            {{ movie.movieTitle ~ ' (' ~ movie.movieRating ~ '/5)' }}
-                        </a>
-                    </li>
+                    {% include '_card.html.twig' %}
                 {% endfor %}
             </ul>
         </div>

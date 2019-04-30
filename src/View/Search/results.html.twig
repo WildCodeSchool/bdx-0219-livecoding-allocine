@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    Hello wilder !
+    <ul>
+        {% for movie in movies %}
+            {% include '_card.html.twig' %}
+        {% else %}
+            <li>No resultes found !</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

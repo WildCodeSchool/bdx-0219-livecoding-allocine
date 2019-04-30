@@ -49,4 +49,22 @@ class MovieManager extends AbstractManager
         $prepared->execute();
         return $prepared->fetch();
     }
+
+    public function selectAllBySearch(string $search) : array
+    {
+
+        $search = str_replace(' ', '%', $search);
+
+        $sql = 'SELECT * FROM ' . self::TABLE . ' AS m
+                LEFT JOIN ' . PosterManager::TABLE . ' AS p ON p.p_movieID = m.movieID
+                WHERE movieTitle LIKE :title
+                OR movieDesc LIKE :desc';
+
+        $prepared = $this->pdo->prepare($sql);
+
+        $prepared->bindValue(':title', '%' . $search . '%', \PDO::PARAM_STR);
+        $prepared->bindValue(':desc', '%' . $search . '%', \PDO::PARAM_STR);
+        $prepared->execute();
+        return $prepared->fetchAll();
+    }
 }

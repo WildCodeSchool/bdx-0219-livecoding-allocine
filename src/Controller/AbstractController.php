@@ -37,6 +37,7 @@ abstract class AbstractController
                 'debug' => APP_DEV,
             ]
         );
+        $this->twig->addGlobal('get', $_GET);
         $this->twig->addExtension(new DebugExtension());
     }
 }
